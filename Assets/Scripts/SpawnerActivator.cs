@@ -8,7 +8,6 @@ public class SpawnerActivator : MonoBehaviour
     [SerializeField] private Spawner[] _spawners;
     
     private float _delay = 2.0f;
-    private float _maxAngle = 360.0f;
     private bool _isNeedToSpawn = true;
 
     private void Start()
@@ -29,9 +28,7 @@ public class SpawnerActivator : MonoBehaviour
         while (_isNeedToSpawn)
         {
             int index = Random.Range(0, _spawners.Length);
-            float angle = Random.Range(0, _maxAngle);
-            Quaternion direction = Quaternion.Euler(0.0f, angle, 0.0f);
-            _spawners[index].GenerateEnemy(direction);
+            _spawners[index].GenerateEnemy();
             yield return delay;
         }
     }
