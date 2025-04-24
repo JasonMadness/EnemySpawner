@@ -4,6 +4,6 @@ public class Mover : MonoBehaviour
 {
     private void Update()
     {
-        transform.Translate(Vector3.forward);
+        transform.Translate(Vector3.forward * Time.deltaTime);
     }
 }
