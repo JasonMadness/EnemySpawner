@@ -5,16 +5,19 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Enemy _enemyPrefab;
     [SerializeField] private Transform _spawnPoint;
     
-    private float _maxAngle = 360.0f;
+    private float _minAngle = -180.0f;
+    private float _maxAngle = 180.0f;
 
     public void GenerateEnemy()
     {
-        Instantiate(_enemyPrefab, _spawnPoint.position, RandomizeDirection());
+        Enemy enemy = Instantiate(_enemyPrefab, _spawnPoint);
+        enemy.SetDirection(RandomizeDirection());
     }
 
-    private Quaternion RandomizeDirection()
+    private Vector3 RandomizeDirection()
     {
-        float angle = Random.Range(0, _maxAngle);
-        return Quaternion.Euler(0.0f, angle, 0.0f);
+        float directionX = Random.Range(_minAngle, _maxAngle);
+        float directionZ = Random.Range(_minAngle, _maxAngle);
+        return new Vector3(directionX, 0.0f, directionZ);
     }
 }
