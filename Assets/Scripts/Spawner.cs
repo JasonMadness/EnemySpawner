@@ -15,7 +15,6 @@ public class Spawner : MonoBehaviour
     private Quaternion RandomizeDirection()
     {
         float angle = Random.Range(0, _maxAngle);
-        Quaternion direction = Quaternion.Euler(0.0f, angle, 0.0f);
-        return direction;
+        return Quaternion.Euler(0.0f, angle, 0.0f);
     }
 }
