@@ -4,10 +4,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private Enemy _enemyPrefab;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private Transform _enemyTarget;
-    
-    private float _minAngle = -180.0f;
-    private float _maxAngle = 180.0f;
+    [SerializeField] private Target _enemyTarget;
 
     public void GenerateEnemy()
     {

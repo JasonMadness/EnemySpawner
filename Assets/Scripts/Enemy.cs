@@ -3,21 +3,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Transform _target;
+    private Target _target;
 
     private void Update()
     {
         FollowTarget();
     }
 
-    public void SetTarget(Transform target)
+    public void SetTarget(Target target)
     {
         _target = target;
     }
 
     private void FollowTarget()
     {
-        transform.LookAt(_target);
+        transform.LookAt(_target.transform.position);
         transform.Translate(Vector3.forward * Time.deltaTime);
     }
 }
