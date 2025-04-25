@@ -3,16 +3,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Vector3 _direction;
+    private Transform _target;
 
     private void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime);
+        FollowTarget();
     }
 
-    public void SetDirection(Vector3 direction)
+    public void SetTarget(Transform target)
     {
-        _direction = direction;
-        transform.LookAt(_direction);
+        _target = target;
+    }
+
+    private void FollowTarget()
+    {
+        transform.LookAt(_target);
+        transform.Translate(Vector3.forward * Time.deltaTime);
     }
 }
